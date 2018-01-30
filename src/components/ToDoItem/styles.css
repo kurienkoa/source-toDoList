@@ -21,18 +21,18 @@
   .item input[type=checkbox]:checked + label {
     color: #c6c6c6;
     text-decoration: line-through; }
-  .item button {
+  .item input[type=button] {
     width: 25px;
     height: 25px;
     display: inline-block;
     vertical-align: top;
     border: none;
     cursor: pointer; }
-    .item button.select {
+    .item input[type=button].select {
       background: url("../../theme/assets/icon-select.png") center no-repeat; }
-    .item button.edit {
+    .item input[type=button].edit {
       background: url("../../theme/assets/icon-edit.png") center no-repeat; }
-    .item button.delete {
+    .item input[type=button].delete {
       background: url("../../theme/assets/icon-delete.png") center no-repeat; }
 
 /*# sourceMappingURL=styles.css.map */

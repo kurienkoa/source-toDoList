@@ -13,7 +13,7 @@ export default class ToDoFooter extends Component {
     }
 
     state = {
-        comment: '',
+        comment:   '',
         complited: false
     };
     _handleSubmit (event) {
@@ -36,27 +36,30 @@ export default class ToDoFooter extends Component {
         this.setState({ comment });
     }
     _toggleChecked () {
-        setState({ complited: true })
+        this.setState({
+            complited: true
+        });
     }
     render () {
         const { comment } = this.state;
+
         return (
             <div className = { Styles.footer }>
                 <div>
-                    <input id = 'checkAll' type = 'checkbox' onClick={ this.toggleChecked } />
+                    <input id = 'checkAll' type = 'checkbox' onClick = { this.toggleChecked } />
                     <label htmlFor = 'checkAll' >Done all</label>
                 </div>
                 <form onSubmit = { this.handleSubmit } >
                     <input
+                        maxLength = { 30 }
                         placeholder = { 'Write here' }
                         type = 'text'
                         value = { comment }
                         onChange = { this._handleTextAreaChange }
-                        maxLength = { 30 }
                     />
                     <button type = 'submit' ><span>+</span> Add Task</button>
                 </form>
             </div>
         );
     }
-};
+}

@@ -7,10 +7,10 @@ import { string, func } from 'prop-types';
 
 export default class ToDoItem extends Component {
     static propTypes = {
-        complited: string,
-        comment: string.isRequired,
+        comment:    string.isRequired,
         deletePost: func.isRequired,
-        id: string.isRequired
+        id:         string.isRequired,
+        complited:  string
     };
     constructor () {
         super();
@@ -26,23 +26,40 @@ export default class ToDoItem extends Component {
         console.log(this.props.id, 'componentDidUpdate');
     }
     _deletePost () {
+
         const { deletePost, id } = this.props;
+
         console.log('id === ', id);
         console.log('this.props === ', this.props);
         deletePost(id);
     }
     render () {
         const { id, comment, complited } = this.props;
+
         return (
             <div className = { Styles.item } key = { id }>
                 <div>
-                    <input type = 'checkbox' id = { id } defaultChecked={ complited } />
+                    <input
+                        defaultChecked = { complited }
+                        id = { id }
+                        type = 'checkbox'
+                    />
                     <label htmlFor = { id } >{ comment }</label>
                 </div>
                 <div>
-                    <button className = { Styles.select }></button>
-                    <button className = { Styles.edit }></button>
-                    <button className = { Styles.delete } onClick = { this.deletePost }></button>
+                    <input
+                        className = { Styles.select }
+                        type = 'button'
+                    />
+                    <input
+                        className = { Styles.edit }
+                        type = 'button'
+                    />
+                    <input
+                        className = { Styles.delete }
+                        type = 'button'
+                        onClick = { this.deletePost }
+                    />
                 </div>
             </div>
         );
