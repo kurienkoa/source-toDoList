@@ -41,7 +41,7 @@ export default class ToDoBlock extends Component {
     _show (show) {
         fromTo(
             show,
-            3,
+            1,
             {
                 x:       0,
                 y:       -100,

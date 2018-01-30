@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { string } from 'prop-types';
 
 // Instruments
-import Styles from './styles';
+import Styles from './styles.scss';
 import ToDoBlock from '../../components/ToDoBlock';
 
 import avatar from '../../theme/assets/homer.png';

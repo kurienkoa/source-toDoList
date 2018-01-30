@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 
 // Instruments
 import Styles from './styles.scss';
+import { func } from 'prop-types';
 
 export default class ToDoFooter extends Component {
+    static propTypes = {
+        createPost: func.isRequired
+    };
     constructor () {
         super();
         this.handleSubmit = :: this._handleSubmit;
