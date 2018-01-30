@@ -1,7 +1,7 @@
 // Core
 import React, { Component } from 'react';
 import { getUniqueID } from '../..//helpers';
-import { Transition } from 'react-transition-group';
+import { Transition, TransitionGroup } from 'react-transition-group';
 import { fromTo } from 'gsap';
 
 // Instruments
@@ -13,31 +13,41 @@ import ToDoFooter from '../ToDoFooter';
 export default class ToDoBlock extends Component {
     constructor () {
         super();
+        this.complited = ::this._complited;
         this.createPost = ::this._createPost;
         this.deletePost = ::this._deletePost;
         this.show = ::this._show;
+        this.hide = ::this._hide;
     }
+
     state = {
         toDoItems: [],
-        complited: false,
         show:      true
     };
+
     _createPost (comment) {
 
         try {
             this.setState(({ toDoItems }) => ({
-                toDoItems: [{ id: getUniqueID(), comment }, ...toDoItems]
+                toDoItems: [{ id: getUniqueID(), comment, complited: false }, ...toDoItems]
             }));
         } catch ({ message }) {
             console.log(message);
         }
 
     }
+
     _deletePost (id) {
         this.setState(({ toDoItems }) => ({
-            toDoItems: toDoItems.filter((toDoItem) => toDoItem.id !== id)
+            toDoItems: toDoItems.filter((toDoItem) => toDoItem.id !== id),
+            show:      false
         }));
     }
+
+    _complited () {
+        this.setState({ complited: true });
+    }
+
     _show (show) {
         fromTo(
             show,
@@ -54,6 +64,23 @@ export default class ToDoBlock extends Component {
             }
         );
     }
+
+    _hide (show) {
+        fromTo(
+            show,
+            1,
+            {
+                x:       0,
+                y:       0,
+                opacity: 1
+            },
+            {
+                x:       0,
+                y:       -100,
+                opacity: 0
+            }
+        );
+    }
     render () {
         const { toDoItems: postsData, show } = this.state;
         const toDoItems = postsData.map((toDoItem) => {
@@ -65,12 +92,14 @@ export default class ToDoBlock extends Component {
                     appear
                     in = { show }
                     key = { toDoItem.id }
-                    timeout = { 3000 }
-                    onEnter = { this.show } >
+                    timeout = { 1000 }
+                    onEnter = { this.show }
+                    onExit = { this.hide } >
                     <ToDoItem
-                        { ...toDoItem }
                         comment = { toDoItem.comment }
+                        complited = { this.complited }
                         deletePost = { this.deletePost }
+                        id = { toDoItem.id }
                     />
                 </Transition>
             );
@@ -79,7 +108,9 @@ export default class ToDoBlock extends Component {
         return (
             <section className = { Styles.toDoBlock }>
                 <ToDoHeader />
-                { toDoItems }
+                <TransitionGroup>
+                    { toDoItems }
+                </TransitionGroup>
                 <ToDoFooter createPost = { this.createPost } />
             </section>
         );
