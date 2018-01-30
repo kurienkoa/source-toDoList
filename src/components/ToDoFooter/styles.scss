@@ -1,0 +1,56 @@
+@import '../../theme/palette';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+
+  input[type=checkbox] {
+    color: #000;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  label {
+    cursor: pointer;
+  }
+  input[type=text] {
+    color: #000;
+    outline: none;
+    margin-right: 10px;
+    border-radius: 30px;
+    width: 317px;
+    height: 41px;
+    padding: 4px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    background-color: #f5f8f9;
+  }
+  button {
+    outline: none;
+    background-color: #28e060;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    width: 141px;
+    line-height: 41px;
+    vertical-align: top;
+    transition: all 700ms;
+    &:hover {
+      transition: all 700ms;
+      background-color: #000;
+    }
+
+    span {
+      font-size: 30px;
+      vertical-align: top;
+    }
+  }
+}

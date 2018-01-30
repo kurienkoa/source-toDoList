@@ -1,0 +1,28 @@
+@import '../../theme/palette';
+
+.toDoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 749px;
+  width: 100%;
+  background-color: #fff;
+  margin: auto;
+
+  .postInStart {
+    transition: all 1.5s;
+    opacity: 0;
+  }
+  .postInEnd {
+    transition: all 1.5s;
+    opacity: 1;
+  }
+  .postOutStart {
+    transition: all .5s;
+    opacity: 1;
+  }
+  .postOutEnd {
+    transition: all .5s;
+    opacity: 0;
+  }
+}

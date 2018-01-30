@@ -1,0 +1,38 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f2f6f7; }
+  .item label {
+    font-size: 20px;
+    color: #313b3d;
+    margin: 0;
+    cursor: pointer; }
+  .item input[type=checkbox] {
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    color: #aebcc0;
+    outline: none;
+    margin-right: 10px; }
+  .item input[type=checkbox]:checked + label {
+    color: #c6c6c6;
+    text-decoration: line-through; }
+  .item button {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: top;
+    border: none;
+    cursor: pointer; }
+    .item button.select {
+      background: url("../../theme/assets/icon-select.png") center no-repeat; }
+    .item button.edit {
+      background: url("../../theme/assets/icon-edit.png") center no-repeat; }
+    .item button.delete {
+      background: url("../../theme/assets/icon-delete.png") center no-repeat; }
+
+/*# sourceMappingURL=styles.css.map */
