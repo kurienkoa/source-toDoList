@@ -13,7 +13,6 @@ import ToDoFooter from '../ToDoFooter';
 export default class ToDoBlock extends Component {
     constructor () {
         super();
-        this.complited = ::this._complited;
         this.createPost = ::this._createPost;
         this.deletePost = ::this._deletePost;
         this.show = ::this._show;
@@ -42,10 +41,6 @@ export default class ToDoBlock extends Component {
             toDoItems: toDoItems.filter((toDoItem) => toDoItem.id !== id),
             show:      false
         }));
-    }
-
-    _complited () {
-        this.setState({ complited: true });
     }
 
     _show (show) {
@@ -97,7 +92,6 @@ export default class ToDoBlock extends Component {
                     onExit = { this.hide } >
                     <ToDoItem
                         comment = { toDoItem.comment }
-                        complited = { this.complited }
                         deletePost = { this.deletePost }
                         id = { toDoItem.id }
                     />
